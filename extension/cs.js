@@ -20,6 +20,9 @@ function gUM(streamId) {
             }
         },
     }).then(stream => {
+        stream.getVideoTracks().forEach(track => {
+            stream.removeTrack(track);
+        });
         vid.srcObject = stream;
     });
 }
