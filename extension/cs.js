@@ -9,7 +9,7 @@ function gUM(streamId) {
     navigator.mediaDevices.getUserMedia({
         audio: {
             mandatory: {
-                chromeMediaSource: 'system',
+                chromeMediaSource: 'desktop',
                 chromeMediaSourceId: streamId
             }
         },
