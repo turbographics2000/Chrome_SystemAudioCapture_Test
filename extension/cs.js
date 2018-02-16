@@ -21,9 +21,10 @@ async function gUM(streamId) {
                 }
             },
         });
-        stream.getVideoTracks().forEach(track => {
-            stream.removeTrack(track);
-        });
+        // オーディオだけほしい場合は、videoトラックを削除
+        // stream.getVideoTracks().forEach(track => {
+        //     stream.removeTrack(track);
+        // });
         vid.srcObject = stream;
     } catch (err) {
         console.log(err);
