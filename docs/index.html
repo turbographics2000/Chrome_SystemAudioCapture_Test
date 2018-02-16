@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <span>下のオーディオプレイヤーを再生してください。ハウリングすればOKです。</span>
-        <audio id="aud" src="Sample_BeeMoved_96kHz24bit.flac"></audio>
-        <video id="vid" autoplay></video>
-    </body>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        video {
+            width: 90%;
+            height: 90%;
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <span>「あなたの全画面」から選択するとオーディオキャプチャーができます。右のオーディオプレイヤーを再生してください。ハウリングすればOKです。</span>
+    <audio id="aud" controls src="Sample_BeeMoved_96kHz24bit.flac"></audio>
+    <video id="vid" autoplay></video>
+</body>
+
 </html>
