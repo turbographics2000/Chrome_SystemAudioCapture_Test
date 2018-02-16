@@ -5,24 +5,27 @@ chrome.runtime.onMessage.addListener(msg => {
     }
 });
 
-function gUM(streamId) {
-    navigator.mediaDevices.getUserMedia({
-        audio: {
-            mandatory: {
-                chromeMediaSource: 'desktop',
-                chromeMediaSourceId: streamId
-            }
-        },
-        video: {
-            mandatory: {
-                chromeMediaSource: 'desktop',
-                chromeMediaSourceId: streamId
-            }
-        },
-    }).then(stream => {
+async function gUM(streamId) {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+            audio: {
+                mandatory: {
+                    chromeMediaSource: 'desktop',
+                    chromeMediaSourceId: streamId
+                }
+            },
+            video: {
+                mandatory: {
+                    chromeMediaSource: 'desktop',
+                    chromeMediaSourceId: streamId
+                }
+            },
+        });
         stream.getVideoTracks().forEach(track => {
             stream.removeTrack(track);
         });
         vid.srcObject = stream;
-    });
+    } catch (err) {
+        console.log(err);
+    }
 }
